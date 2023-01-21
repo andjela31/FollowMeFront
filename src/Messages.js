@@ -8,7 +8,7 @@ function Messages() {
         <div className="glavni1">
           <div className="">
 
-            <h1 className="member">Member</h1>
+            <h1 className="member">Chats</h1>
 
             <div className="card mask-custom glavni1">
               <div className='glavni1'>

@@ -7,7 +7,7 @@ import { FaRegComment } from 'react-icons/fa';
 import { FaRegPaperPlane } from 'react-icons/fa'; 
 import FollowersModal from './FollowersModal';
 import FollowingModal from './FollowingModal'
-function Profile() {
+function OthersProfile(props) {
     const [postovi, setPostovi] = React.useState([]);
     const [loading, setLoading] = React.useState([]);
     const [followingModalIsOpen, setFollowingIsOpen] = React.useState(false);
@@ -42,7 +42,7 @@ function Profile() {
     React.useEffect(() => {
         setLoading(true);
       const getPerson = async() =>{
-        const res = await fetch("https://localhost:7096/User/getUserById/0");
+        const res = await fetch("https://localhost:7096/User/getUserById/2");
         const getdata = await res.json();
         setPerson(getdata);
         console.log("Person")
@@ -112,7 +112,7 @@ function Profile() {
                         {person.userName}
                     </div>
                     <div className='dugme3'>
-                        <button className='btn'>Logout</button>
+                        <button className='btn'>Follow</button>
                     </div>
                 </div>
                 <div className='info'>
@@ -156,4 +156,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default OthersProfile;

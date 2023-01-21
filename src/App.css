@@ -42,6 +42,7 @@
   justify-content: center;
   background-color: rgb(240,240,240);
   color: black;
+  padding-left: 200px;
 }
 
 .levi {
@@ -107,12 +108,62 @@ input {
   padding-left: 40px;
 }
 
+.width {
+  width: 350px;
+}
+
+.move {
+  margin-left: 30px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.modal2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .uredi {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 850px;
+}
+
+.btn2 {
+  background-color: black;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+    border-radius: 10%;
+    width: 50px;
+    cursor: pointer;
+}
+
+.uredi2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  flex-wrap: wrap;
+  width: 650px;
 }
 
 .objava {
@@ -122,9 +173,42 @@ input {
   border-radius: 2em;
 }
 
+.follower {
+  background: rgba(24, 24, 16, .2);
+    border-radius: 2em;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.modal {
+  height: 91%;
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  overflow-y: auto;
+}
+
 .info1 {
   padding: 10px;
   padding-left: 30px;
+}
+
+.arrow {
+  cursor: default;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .info {
@@ -156,6 +240,8 @@ input {
   height: 100%;
 }
 
+
+
 .cen1 {
   display: flex;
   justify-content: center;
@@ -182,6 +268,12 @@ input {
   display: flex;
   justify-self: flex-start;
   width: 600px;
+}
+
+.hee4 {
+  display: flex;
+  justify-self: flex-start;
+  width: 480px;
 }
 
 .dugme2 {

@@ -9,6 +9,7 @@ import Register from './Register';
 import ProfilePage from './ProfilePage';
 import { Routes, Route } from "react-router-dom";
 import ChatPage from './ChatPage';
+import OtherProfilePage from './OtherProfilePage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/chat" element={<ChatPage />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route path="/otherprof/:personId" element={<OtherProfilePage />}></Route>
       </Routes>
       </div>
       <Footer />
