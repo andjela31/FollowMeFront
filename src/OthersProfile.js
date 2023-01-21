@@ -15,6 +15,17 @@ function OthersProfile(props) {
     const [followers, setFollowers] = React.useState([]);
     const [following, setFollowing] = React.useState([]);
 
+    const myProfile = 0;
+    const id = 1;
+
+    async function follow() {
+        //treba moj id i id ovog profila
+        const res2 = await fetch("https://localhost:50017096/User/followUser/" + myProfile + "/" + id,
+                {
+                    method: 'PUT'
+                });
+    }
+
     function openFollowingModal() {
         setFollowingIsOpen(true);
     }
@@ -112,7 +123,7 @@ function OthersProfile(props) {
                         {person.userName}
                     </div>
                     <div className='dugme3'>
-                        <button className='btn'>Follow</button>
+                        <button onClick={follow} className='btn'>Follow</button>
                     </div>
                 </div>
                 <div className='info'>

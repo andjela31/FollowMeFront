@@ -6,12 +6,15 @@ import { FaUserAlt } from 'react-icons/fa'
 import { FaHandsHelping } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import SearchModal from './SearchModal'
+import HelpModal from './HelpModal'
 
 function Header() {
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [following, setFollowing] = React.useState([]);
   const [loading, setLoading] = React.useState([]);
+
+  const [helpModalIsOpen, setHelpIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     setLoading(true);
@@ -31,8 +34,8 @@ function Header() {
     setIsOpen(true);
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function openHelpModal() {
+    setHelpIsOpen(true);
   }
 
 
@@ -41,6 +44,7 @@ function Header() {
         <header className='levi'>
             <section>
               {modalIsOpen && <SearchModal following={following} setCloseModal={setIsOpen} mod={modalIsOpen} />}
+              {helpModalIsOpen && <HelpModal setCloseModal={setHelpIsOpen} mod={helpModalIsOpen} />}
               <div className='divLevi'>
                   <div>
                       <h2 className="font-weight-bold mb-3 text-center text-white naslov">FollowMe</h2>
@@ -51,7 +55,7 @@ function Header() {
                     
                   <div className='option'><FaEnvelope /> <Link to='/message' className='color'>Messages</Link></div>
                   <div className='option'><FaUserAlt /> <Link to='/profile' className='color'>Profile</Link></div>
-                  <div className='option'><FaHandsHelping /> <Link to='/help' className='color'>Help</Link></div>
+                  <div className='option'><FaHandsHelping /> <Link onClick={openHelpModal} className='color'>Help</Link></div>
                   </div>
               </div>
             </section>
