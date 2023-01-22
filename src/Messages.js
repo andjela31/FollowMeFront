@@ -2,6 +2,11 @@ import './Chat.css'
 import { Link } from 'react-router-dom';
 
 function Messages() {
+
+  function newChat() {
+    
+  }
+
   return (
     <div>
       <section>
@@ -13,7 +18,7 @@ function Messages() {
               <div className='width'>
                 <input placeholder='Add paticipants' type='text'></input>
               </div>
-              <button className='btn3'>New chat</button>
+              <button onClick={newChat} className='btn3'>New chat</button>
             </div>
 
             <div className="card mask-custom glavni1">
