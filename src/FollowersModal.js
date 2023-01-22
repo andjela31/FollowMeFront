@@ -30,13 +30,13 @@ function FollowersModal(props) {
                     {props.followers.map((follower, index) => {
                     console.log(follower);
                     return (
-                        <Link key={index} to='/chat' className="prviDiv1">
+                        <Link key={index} to={`/otherprof/${follower.id}`} className="prviDiv1">
                             <div className="prviDiv1 follower">
-                                <img src={follower.url} alt="avatar"
+                                <img src={follower.profilePicture} alt="avatar"
                                 className="slika" width="60"></img>
                                 <div className="pt-1 sirina">
                                     <p className="fw-bold mb-0">{follower.userName}</p>
-                                    <p className="small text-white">Opis</p> 
+                                    <p className="small text-white">{follower.profileDescription}</p> 
                                 </div>
                                 <div className='modal2'>
                                     <button className='btn'>Remove</button>

@@ -7,6 +7,7 @@ import { FaRegComment } from 'react-icons/fa';
 import { FaRegPaperPlane } from 'react-icons/fa'; 
 import FollowersModal from './FollowersModal';
 import FollowingModal from './FollowingModal'
+import AddPostModal from './AddPostModal';
 function Profile() {
     const [postovi, setPostovi] = React.useState([]);
     const [loading, setLoading] = React.useState([]);
@@ -14,6 +15,12 @@ function Profile() {
     const [followersModalIsOpen, setFollowersIsOpen] = React.useState(false);
     const [followers, setFollowers] = React.useState([]);
     const [following, setFollowing] = React.useState([]);
+    const [postModalIsOpen, setPostIsOpen] = React.useState(false);
+
+
+    function openPostModal() {
+      setPostIsOpen(true)
+    }
 
     function openFollowingModal() {
         setFollowingIsOpen(true);
@@ -36,7 +43,7 @@ function Profile() {
     console.log(postNum);
 
     const [person, setPerson] = React.useState({
-      id: 2
+      id: -1
     });
 
     React.useEffect(() => {
@@ -102,7 +109,7 @@ function Profile() {
       <div>
         <div className='profil'>
             <div>
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                <img src={person.profilePicture} alt="avatar"
                 className="profilnaSlika"></img>
                 
             </div>
@@ -112,7 +119,10 @@ function Profile() {
                         {person.userName}
                     </div>
                     <div className='dugme3'>
-                        <button className='btn'>Logout</button>
+                        <button className='btn3'>Logout</button>
+                    </div>
+                    <div className='dugme3'>
+                        <button onClick={openPostModal} className='btn3'>Add post</button>
                     </div>
                 </div>
                 <div className='info'>
@@ -120,12 +130,13 @@ function Profile() {
                     <div onClick={openFollowersModal} className='info1 pointer'>{person.numbersOfFollowers} followers</div>
                     <div onClick={openFollowingModal} className='info1 pointer'>{person.numbersOfFollowings} following</div>
                 </div>
-                <div className='info1 arrow'>Neki opis.</div>
+                <div className='info1 arrow'>{person.profileDescription}</div>
             </div>
         </div> 
 
         {followersModalIsOpen && <FollowersModal followers={followers} setCloseModal={setFollowersIsOpen} mod={followersModalIsOpen} />}
         {followingModalIsOpen && <FollowingModal following={following} setCloseModal={setFollowingIsOpen} mod={followingModalIsOpen} />}
+        {postModalIsOpen && <AddPostModal setCloseModal={setPostIsOpen} mod={postModalIsOpen} id={person.id} />}
 
         <div className='mar'>
 

@@ -4,8 +4,8 @@ import OthersProfile from "./OthersProfile";
 
 function OtherProfilePage() {
 
-    const {id} = useParams();
-    console.log("HEYYY" + id)
+    const id = useParams();
+    console.log("HEYYY" + id.personId)
 
     return (
         <div className="center2">
@@ -13,8 +13,7 @@ function OtherProfilePage() {
                 <Header />
             </div>
             <div className="pola">
-                ovo je id {id}
-                <OthersProfile />
+                <OthersProfile id={id.personId} />
             </div>
         </div>
     )

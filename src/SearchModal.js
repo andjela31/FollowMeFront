@@ -29,7 +29,7 @@ function SearchModal(props) {
                             <input type='text'></input>
                         </div>
                         
-                            <button className='btn2'><Link to={`/otherprof/${2}`}><FaSearch /></Link></button>
+                            <button className='btn2'><Link to={`/otherprof/${0}`}><FaSearch /></Link></button>
                         
                     </div>
                 </div>

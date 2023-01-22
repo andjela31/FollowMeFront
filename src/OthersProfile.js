@@ -16,11 +16,10 @@ function OthersProfile(props) {
     const [following, setFollowing] = React.useState([]);
 
     const myProfile = 0;
-    const id = 1;
 
     async function follow() {
         //treba moj id i id ovog profila
-        const res2 = await fetch("https://localhost:50017096/User/followUser/" + myProfile + "/" + id,
+        const res2 = await fetch("https://localhost:50017096/User/followUser/" + myProfile + "/" + props.id,
                 {
                     method: 'PUT'
                 });
@@ -53,7 +52,7 @@ function OthersProfile(props) {
     React.useEffect(() => {
         setLoading(true);
       const getPerson = async() =>{
-        const res = await fetch("https://localhost:7096/User/getUserById/2");
+        const res = await fetch("https://localhost:7096/User/getUserById/" + props.id);
         const getdata = await res.json();
         setPerson(getdata);
         console.log("Person")
@@ -67,7 +66,7 @@ function OthersProfile(props) {
     React.useEffect(() => {
         setLoading(true);
       const getFollowers = async() =>{
-        const res = await fetch("https://localhost:7096/User/getUserFollowers/0");
+        const res = await fetch("https://localhost:7096/User/getUserFollowers/"  + props.id);
         const getdata = await res.json();
         setFollowers(getdata);
         console.log("FOLLOWERS")
@@ -81,7 +80,7 @@ function OthersProfile(props) {
     React.useEffect(() => {
         setLoading(true);
       const getFollowings = async() =>{
-        const res = await fetch("https://localhost:7096/User/getUserFollowings/0");
+        const res = await fetch("https://localhost:7096/User/getUserFollowings/" + props.id);
         const getdata = await res.json();
         setFollowing(getdata);
         console.log("FOLLOWERS")
@@ -96,7 +95,7 @@ function OthersProfile(props) {
     React.useEffect(() => {
         setLoading(true);
       const getpostovi = async() =>{
-        const res = await fetch("https://localhost:7096/Post/getAllPostsFromUser/0");
+        const res = await fetch("https://localhost:7096/Post/getAllPostsFromUser/" + props.id);
         const getdata = await res.json();
         setPostovi(getdata);
         console.log(getdata);
@@ -113,7 +112,7 @@ function OthersProfile(props) {
       <div>
         <div className='profil'>
             <div>
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                <img src={person.profilePicture} alt="avatar"
                 className="profilnaSlika"></img>
                 
             </div>
@@ -131,7 +130,7 @@ function OthersProfile(props) {
                     <div onClick={openFollowersModal} className='info1 pointer'>{person.numbersOfFollowers} followers</div>
                     <div onClick={openFollowingModal} className='info1 pointer'>{person.numbersOfFollowings} following</div>
                 </div>
-                <div className='info1 arrow'>Neki opis.</div>
+                <div className='info1 arrow'>{person.profileDescription}</div>
             </div>
         </div> 
 

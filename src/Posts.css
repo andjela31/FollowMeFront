@@ -74,12 +74,19 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .desc {
+    margin-bottom: 40px;
+    padding-left: 60px;
+    font-size: large;
+    font-weight: 500;
+  }
   
   .prviDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 10px;
+    padding-left: 0px;
     margin: 0px;
     color: white;
     text-decoration: none;
