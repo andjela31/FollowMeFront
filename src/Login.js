@@ -1,6 +1,19 @@
 import slika from './images/footprints.webp';
 import { Link } from 'react-router-dom';
 function Login() {
+
+
+  async function login() {
+
+    const res = await fetch("https://localhost:7096/User/getUserById/0");
+    const getdata = await res.json(); 
+
+    console.log(getdata);
+  }
+
+
+
+
   return (
     <div className='center'>
       <section className="polapola">
@@ -20,7 +33,7 @@ function Login() {
                 <input type="password"></input>
                 
                 <div className="d">
-                    <button type="button" className="button btn">Log in</button>
+                    <button onClick={login} type="button" className="button btn">Log in</button>
                 </div>
             </div>
 

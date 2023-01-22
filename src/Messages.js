@@ -9,9 +9,17 @@ function Messages() {
           <div className="">
 
             <h1 className="member">Chats</h1>
+            <div className='search'>
+              <div className='width'>
+                <input placeholder='Add paticipants' type='text'></input>
+              </div>
+              <button className='btn3'>New chat</button>
+            </div>
 
             <div className="card mask-custom glavni1">
               <div className='glavni1'>
+
+                
 
               <ul>
 

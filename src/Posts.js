@@ -1,4 +1,3 @@
-
 import './Posts.css';
 import React from "react"
 import { FaRegHeart } from 'react-icons/fa'; 
@@ -13,7 +12,7 @@ function Posts() {
 
   // const [brojDogadjaja, setBrojDogadjaja] = React.useState(dogadjaj.length);
  
-
+//ovde treba da uzmemo following listu za trenutno prijavljenog korisnika
   React.useEffect(() => {
     setLoading(true);
   const getFollowings = async() =>{
