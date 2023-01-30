@@ -4,6 +4,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa'; 
 import { FaHeart } from 'react-icons/fa';
 import PostModal from './PostModal';
+import CommentModal from './CommentModal';
 
 function Posts() {
   const [postovi, setPostovi] = React.useState([]);
@@ -12,6 +13,8 @@ function Posts() {
   const [stories, setStories] = React.useState([]);
 
   const [postModalIsOpen, setPostIsOpen] = React.useState(false)
+  const [commentModalIsOpen, setCommentIsOpen] = React.useState(false)
+  const [comments, setComments] = React.useState([])
 
   const [heart, setHeart] = React.useState(false)
 
@@ -30,7 +33,7 @@ function Posts() {
   React.useEffect(() => {
     setLoading(true);
   const getPostovi = async() =>{
-    const res = await fetch("https://localhost:7096/Post/getFollowingsRecentPosts/" + myProfile);
+    const res = await fetch("https://localhost:7096/Post/getFollowingsRecentPosts/" + 0);
     const getdata = await res.json();
     setPostovi(getdata);
     console.log("Person")
@@ -46,6 +49,9 @@ function Posts() {
     setPostIsOpen(true)
   }
 
+  function openCommentModal() {
+    setCommentIsOpen(true)
+  }
 
 
 
@@ -167,9 +173,10 @@ function Posts() {
                         heart ? <FaRegHeart className='ikonica' /> : <FaHeart className='ikonica' />
                       }
                     </div>
-                    <div className='ikonica'>
+                    <div onClick={openCommentModal} className='ikonica'>
                       <FaRegComment className='ikonica' />
                     </div>
+                    {commentModalIsOpen && <CommentModal comments={comments} setCloseModal={setCommentIsOpen} mod={commentModalIsOpen} />}
                   </div>
 
                 </div>
